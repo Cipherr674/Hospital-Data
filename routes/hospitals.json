@@ -1,0 +1,27 @@
+[
+  {
+    "Name": "City Care Hospital",
+    "PatientCount": 120,
+    "Location": "Thiruvananthapuram, Kerala"
+  },
+  {
+    "Name": "Green Valley Medical Center",
+    "PatientCount": 85,
+    "Location": "Kochi, Kerala"
+  },
+  {
+    "Name": "Sunrise General Hospital",
+    "PatientCount": 200,
+    "Location": "Chennai, Tamil Nadu"
+  },
+  {
+    "Name": "Harmony Health Clinic",
+    "PatientCount": 60,
+    "Location": "Bengaluru, Karnataka"
+  },
+  {
+    "Name": "Global Healthcare Institute",
+    "PatientCount": 150,
+    "Location": "Mumbai, Maharashtra"
+  }
+]
