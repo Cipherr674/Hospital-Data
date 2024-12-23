@@ -3,14 +3,13 @@ const router = express.Router();
 const fs = require('fs').promises;
 const path = require('path');
 
-// Middleware
+
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
-// File path for JSON data
 const filePath = path.join(__dirname, 'hospitals.json');
 
-// Initialize JSON file with default data if it doesn't exist
+
 const initializeData = async () => {
     const defaultData = [
         {
@@ -41,13 +40,13 @@ const initializeData = async () => {
     ];
 
     try {
-        await fs.access(filePath); // Check if the file exists
+        await fs.access(filePath); 
     } catch {
         await fs.writeFile(filePath, JSON.stringify(defaultData, null, 2)); // Create file with default data
     }
 };
 
-// Read data from JSON file
+
 const readData = async () => {
     try {
         const data = await fs.readFile(filePath, 'utf8');
@@ -58,7 +57,7 @@ const readData = async () => {
     }
 };
 
-// Write data to JSON file
+
 const writeData = async (data) => {
     try {
         await fs.writeFile(filePath, JSON.stringify(data, null, 2));
@@ -68,10 +67,10 @@ const writeData = async (data) => {
     }
 };
 
-// Initialize the JSON file when the server starts
+
 initializeData();
 
-// GET all hospitals
+
 router.get('/data', async (req, res) => {
     try {
         const hospitals = await readData();
@@ -81,7 +80,7 @@ router.get('/data', async (req, res) => {
     }
 });
 
-// POST new hospital
+
 router.post('/add', async (req, res) => {
     try {
         const hospitals = await readData();
@@ -93,7 +92,7 @@ router.post('/add', async (req, res) => {
     }
 });
 
-// PUT update hospital
+
 router.put('/edit/:id', async (req, res) => {
     try {
         const hospitals = await readData();
@@ -111,7 +110,6 @@ router.put('/edit/:id', async (req, res) => {
     }
 });
 
-// DELETE hospital
 router.delete('/delete/:id', async (req, res) => {
     try {
         const hospitals = await readData();
